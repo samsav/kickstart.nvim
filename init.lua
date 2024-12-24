@@ -104,8 +104,32 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- [[ Custom remaps ]]
+--
 -- Open Oil in current working directory
 vim.keymap.set('n', '<leader>co', '<CMD>Oil --float<CR>', { desc = 'Open Oil in current working directory' })
+
+-- Unload current buffer
+vim.keymap.set('n', '<leader>bd', '<CMD>bdelete<CR>', { desc = 'Close current buffer' })
+
+--Remaps for a Nordic keyboard where especially ^ is slightly annoying to type
+vim.keymap.set({ 'n', 'v' }, 'ö', '^', { desc = 'Go to first non-blank character of the line' })
+vim.keymap.set({ 'n', 'v' }, 'ä', '$', { desc = 'Go to the end of the line' })
+vim.keymap.set({ 'n', 'v' }, 'gö', 'g^', { desc = 'Go to first non-blank character on screen line' })
+vim.keymap.set({ 'n', 'v' }, 'gä', 'g$', { desc = 'Go to last non-blank character on screen line' })
+vim.keymap.set({ 'n', 'v' }, 'dö', 'd^', { desc = 'Delete to first non-blank character of the line' })
+vim.keymap.set({ 'n', 'v' }, 'dä', 'd$', { desc = 'Delete to end of the line' })
+
+-- "greatest remap ever", from https://github.com/ThePrimeagen/init.lua
+-- When pasting over highlighted content, delete that content into the void register
+-- and preserve the current paste buffer.
+vim.keymap.set('x', '<leader>p', [["_dP]])
+
+-- Delete into the void register
+vim.keymap.set({ 'n', 'v' }, '<leader>dv', '"_d', { desc = 'Delete into void register' })
+
+-- Search and replace shortcut
+vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Search and replace current word' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
