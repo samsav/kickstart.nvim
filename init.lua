@@ -329,6 +329,7 @@ require('lazy').setup({
         -- },
         -- pickers = {}
         extensions = {
+          fzf = {},
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
@@ -533,6 +534,7 @@ require('lazy').setup({
         marksman = {},
         -- gopls = {},
         pyright = {},
+        html = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -627,6 +629,7 @@ require('lazy').setup({
         python = { 'ruff_organize_imports', 'ruff_format' },
         markdown = { 'mdformat' },
         bash = { 'shfmt' },
+        html = { 'prettier' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -669,6 +672,8 @@ require('lazy').setup({
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
     },
     config = function()
       -- See `:help cmp`
