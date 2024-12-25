@@ -112,7 +112,9 @@ vim.keymap.set('n', '<leader>co', '<CMD>Oil --float<CR>', { desc = 'Open Oil in 
 -- Unload current buffer
 vim.keymap.set('n', '<leader>bd', '<CMD>bdelete<CR>', { desc = 'Close current buffer' })
 
---Remaps for a Nordic keyboard where especially ^ is slightly annoying to type
+-- Remaps for a Nordic keyboard where especially ^ is slightly annoying to type
+-- (the first keystroke activates a modifier for adding a diacritic to another
+-- character; the second keystroke inserts the ^ character itself.)
 vim.keymap.set({ 'n', 'v' }, 'ö', '^', { desc = 'Go to first non-blank character of the line' })
 vim.keymap.set({ 'n', 'v' }, 'ä', '$', { desc = 'Go to the end of the line' })
 vim.keymap.set({ 'n', 'v' }, 'gö', 'g^', { desc = 'Go to first non-blank character on screen line' })
