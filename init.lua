@@ -112,9 +112,9 @@ vim.keymap.set('n', '<leader>co', '<CMD>Oil --float<CR>', { desc = 'Open Oil in 
 -- Unload current buffer
 vim.keymap.set('n', '<leader>bd', '<CMD>bdelete<CR>', { desc = 'Close current buffer' })
 
--- Remaps for a Nordic keyboard where especially ^ is slightly annoying to type
--- (the first keystroke activates a modifier for adding a diacritic to another
--- character; the second keystroke inserts the ^ character itself.)
+-- Remaps for a 🇫🇮🇸🇪🇳🇴🇩🇰🇮🇸 keyboard where ö/ø and ä/æ are just sitting
+-- there on the home row, smoking cigarettes and looking cool but taking up
+-- prime real estate that we can put to better use
 vim.keymap.set({ 'n', 'v' }, 'ö', '^', { desc = 'Go to first non-blank character of the line' })
 vim.keymap.set({ 'n', 'v' }, 'ä', '$', { desc = 'Go to the end of the line' })
 vim.keymap.set({ 'n', 'v' }, 'gö', 'g^', { desc = 'Go to first non-blank character on screen line' })
@@ -537,6 +537,7 @@ require('lazy').setup({
         -- gopls = {},
         pyright = {},
         html = {},
+        cssls = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -632,6 +633,7 @@ require('lazy').setup({
         markdown = { 'mdformat' },
         bash = { 'shfmt' },
         html = { 'prettier' },
+        css = { 'prettier' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
