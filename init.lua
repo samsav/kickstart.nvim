@@ -133,6 +133,9 @@ vim.keymap.set({ 'n', 'v' }, '<leader>dv', '"_d', { desc = 'Delete into void reg
 -- Search and replace shortcut
 vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Search and replace current word' })
 
+-- Make current file executable
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make current file executable' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
