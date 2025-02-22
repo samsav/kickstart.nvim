@@ -115,6 +115,7 @@ vim.keymap.set('n', '<leader>bd', '<CMD>bdelete<CR>', { desc = 'Close current bu
 -- Remaps for a 🇫🇮🇸🇪🇳🇴🇩🇰🇮🇸 keyboard where ö/ø and ä/æ are just sitting
 -- there on the home row, smoking cigarettes and looking cool but taking up
 -- prime real estate that we can put to better use
+-- TODO: add c and y, refactor to a loop that sets the keymaps?
 vim.keymap.set({ 'n', 'v' }, 'ö', '^', { desc = 'Go to first non-blank character of the line' })
 vim.keymap.set({ 'n', 'v' }, 'ä', '$', { desc = 'Go to the end of the line' })
 vim.keymap.set({ 'n', 'v' }, 'gö', 'g^', { desc = 'Go to first non-blank character on screen line' })
@@ -541,6 +542,9 @@ require('lazy').setup({
         pyright = {},
         html = {},
         cssls = {},
+        jsonls = {},
+        docker_compose_language_service = {},
+        terraformls = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
