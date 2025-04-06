@@ -130,7 +130,6 @@ vim.keymap.set('x', '<leader>p', [["_dP]])
 
 -- Delete into the void register
 vim.keymap.set({ 'n', 'v' }, '<leader>dv', '"_d', { desc = 'Delete into void register' })
-
 -- Search and replace shortcut
 vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Search and replace current word' })
 
@@ -645,6 +644,7 @@ require('lazy').setup({
         bash = { 'shfmt' },
         html = { 'prettier' },
         css = { 'prettier' },
+        terraform = { 'terraform_fmt' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
