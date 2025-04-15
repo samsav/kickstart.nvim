@@ -14,6 +14,9 @@ return {
     { '\\', ':Neotree reveal float<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
+    sources = {
+      'filesystem',
+    },
     window = {
       mappings = {
         ['<space>'] = {
