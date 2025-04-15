@@ -71,6 +71,35 @@ return {
           ['\\'] = 'close_window',
         },
       },
+      filtered_items = {
+        visible = true, -- when true, they will just be displayed differently than normal items
+        force_visible_in_empty_folder = false, -- when true, hidden files will be shown if the root folder is otherwise empty
+        show_hidden_count = false, -- when true, the number of hidden items in each folder will be shown as the last entry
+        hide_dotfiles = false,
+        hide_gitignored = false,
+        hide_by_name = {
+          '.ds_store',
+          'thumbs.db',
+          --"node_modules",
+        },
+        hide_by_pattern = { -- uses glob style patterns
+          --"*.meta",
+          --"*/src/*/tsconfig.json"
+        },
+        always_show = { -- remains visible even if other settings would normally hide it
+          --".gitignored",
+        },
+        always_show_by_pattern = { -- uses glob style patterns
+          --".env*",
+        },
+        never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+          --".ds_store",
+          --"thumbs.db"
+        },
+        never_show_by_pattern = { -- uses glob style patterns
+          --".null-ls_*",
+        },
+      },
     },
   },
 }
