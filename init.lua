@@ -137,7 +137,10 @@ vim.keymap.set({ 'n', 'v' }, '<leader>dv', '"_d', { desc = 'Delete into void reg
 vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Search and replace current word' })
 
 -- Make current file executable
-vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make current file executable' })
+vim.keymap.set('n', '<leader>xx', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make current file executable' })
+
+-- Run current Lua file
+vim.keymap.set('n', '<leader>xl', '<cmd>luafile %<CR>', { silent = true, desc = 'Run current Lua file' })
 
 vim.keymap.set('n', '<C-w>z', '<CMD>ZenMode<CR>', { desc = 'Toggle Zen Mode' })
 
