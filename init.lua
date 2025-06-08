@@ -146,7 +146,7 @@ vim.keymap.set('n', '<C-w>z', '<CMD>ZenMode<CR>', { desc = 'Toggle Zen Mode' })
 
 -- Aerial
 vim.keymap.set('n', '<leader>ta', '<cmd>AerialToggle!<CR>', { desc = 'Toggle aerial window' })
-vim.keymap.set('n', '<leader>tA', '<cmd>AerialNavToggle<CR>', { desc = 'Toggle aerial nav window' })
+vim.keymap.set('n', '¸', '<cmd>AerialNavToggle<CR>', { desc = 'Toggle aerial nav window' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
