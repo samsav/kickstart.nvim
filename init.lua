@@ -461,10 +461,25 @@ require('lazy').setup({
       local servers = {
         -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
         ruff = {},
+        ty = {},
         bashls = {},
         marksman = {},
         gopls = {},
-        -- pyright = {},
+        pyright = {
+          settings = {
+            pyright = {
+              -- Using Ruff's import organizer
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                ignore = { '*' },
+                typeCheckingMode = 'off',
+              },
+            },
+          },
+        },
         html = {},
         cssls = {},
         jsonls = {},
@@ -546,7 +561,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        python = { 'ruff_organize_imports', 'ruff_format' },
+        python = { 'ruff_fix', 'ruff_organize_imports', 'ruff_format' },
         markdown = { 'mdformat' },
         bash = { 'shfmt' },
         html = { 'prettier' },
