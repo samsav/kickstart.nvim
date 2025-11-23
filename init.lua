@@ -483,6 +483,7 @@ require('lazy').setup({
         html = {},
         cssls = {},
         jsonls = {},
+        docker_language_server = {},
         docker_compose_language_service = {},
         terraformls = {},
 

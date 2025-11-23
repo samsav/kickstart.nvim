@@ -9,6 +9,9 @@ return {
         markdown = { 'markdownlint' },
         python = { 'ruff' },
         bash = { 'shellcheck' },
+        dockerfile = { 'hadolint' },
+        terraform = { 'tflint' },
+        json = { 'jsonlint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
