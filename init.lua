@@ -120,7 +120,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ Custom remaps ]]
 --
 -- Open Oil in current working directory
-vim.keymap.set('n', '<leader>co', '<CMD>Oil --float<CR>', { desc = 'Open Oil in current working directory' })
+-- vim.keymap.set('n', '<leader>co', '<CMD>Oil --float<CR>', { desc = 'Open Oil in current working directory' })
 
 -- Unload current buffer
 vim.keymap.set('n', '<leader>bd', '<CMD>bdelete<CR>', { desc = 'Close current buffer' })
