@@ -144,7 +144,10 @@ vim.keymap.set('x', '<leader>p', [["_dP]])
 -- Delete into the void register
 vim.keymap.set({ 'n', 'v' }, '<leader>dv', '"_d', { desc = 'Delete into void register' })
 -- Search and replace shortcut
-vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Search and replace current word' })
+-- vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Search and replace current word' })
+vim.keymap.set({ 'n', 'x' }, '<localleader>rr', function()
+  require('grug-far').open { prefills = { search = vim.fn.expand '<cword>' } }
+end, { desc = 'Search and replace current word' })
 
 -- Make current file executable
 vim.keymap.set('n', '<leader>xx', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make current file executable' })
