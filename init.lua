@@ -143,11 +143,29 @@ vim.keymap.set('x', '<leader>p', [["_dP]])
 
 -- Delete into the void register
 vim.keymap.set({ 'n', 'v' }, '<leader>dv', '"_d', { desc = 'Delete into void register' })
--- Search and replace shortcut
+
+-- Search and replace shortcuts
 -- vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Search and replace current word' })
 vim.keymap.set({ 'n', 'x' }, '<localleader>rr', function()
   require('grug-far').open { prefills = { search = vim.fn.expand '<cword>' } }
 end, { desc = 'Search and replace current word' })
+
+vim.keymap.set({ 'n', 'x' }, '<leader>si', function()
+  require('grug-far').open { visualSelectionUsage = 'operate-within-range' }
+end, { desc = 'grug-far: Search within range' })
+
+vim.keymap.set({ 'n', 'x' }, '<leader>ss', function()
+  local search = vim.fn.getreg '/'
+  -- surround with \b if "word" search (such as when pressing `*`)
+  if search and vim.startswith(search, '\\<') and vim.endswith(search, '\\>') then
+    search = '\\b' .. search:sub(3, -3) .. '\\b'
+  end
+  require('grug-far').open {
+    prefills = {
+      search = search,
+    },
+  }
+end, { desc = 'grug-far: Search using @/ register value or visual selection' })
 
 -- Make current file executable
 vim.keymap.set('n', '<leader>xx', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make current file executable' })
@@ -318,7 +336,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+      -- vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
