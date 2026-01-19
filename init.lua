@@ -176,7 +176,7 @@ vim.keymap.set('n', '<leader>xl', '<cmd>luafile %<CR>', { silent = true, desc = 
 vim.keymap.set('n', '<C-w>z', '<CMD>ZenMode<CR>', { desc = 'Toggle Zen Mode' })
 
 -- Aerial
-vim.keymap.set('n', '<leader>ta', '<cmd>AerialToggle!<CR>', { desc = 'Toggle aerial window' })
+vim.keymap.set('n', '<leader>ta', '<cmd>AerialToggle left<CR>', { desc = 'Toggle aerial window' })
 vim.keymap.set('n', '¸', '<cmd>AerialNavToggle<CR>', { desc = 'Toggle aerial nav window' })
 
 -- [[ Basic Autocommands ]]
