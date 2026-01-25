@@ -526,16 +526,19 @@ require('lazy').setup({
         terraformls = {},
 
         lua_ls = {
-          -- cmd = {...},
-          -- filetypes = { ...},
-          -- capabilities = {},
+          cmd = { 'lua-language-server' },
+          filetypes = { 'lua' },
+          capabilities = {},
           settings = {
             Lua = {
               completion = {
                 callSnippet = 'Replace',
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              diagnostics = { disable = { 'missing-fields' } },
+              diagnostics = {
+                disable = { 'missing-fields' },
+                globals = { 'vim' },
+              },
             },
           },
         },
@@ -552,6 +555,10 @@ require('lazy').setup({
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
+        -- See https://github.com/nvim-lua/kickstart.nvim/issues/1838
+        ensure_installed = {},
+        automatic_installation = false,
+        automatic_enable = false,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
@@ -559,7 +566,8 @@ require('lazy').setup({
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            vim.lsp.config(server_name, server)
+            vim.lsp.enable(server_name)
           end,
         },
       }
