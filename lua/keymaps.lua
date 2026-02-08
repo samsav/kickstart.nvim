@@ -86,3 +86,5 @@ vim.keymap.set('n', '<C-w>z', '<CMD>ZenMode<CR>', { desc = 'Toggle Zen Mode' })
 -- Aerial
 vim.keymap.set('n', '<leader>ta', '<cmd>AerialToggle left<CR>', { desc = 'Toggle aerial window' })
 vim.keymap.set('n', '¸', '<cmd>AerialNavToggle<CR>', { desc = 'Toggle aerial nav window' })
+
+-- vim: ts=2 sts=2 sw=2 et
