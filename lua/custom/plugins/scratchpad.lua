@@ -1,1 +1,0 @@
-/home/samsav/projects/nvim-plugins/scratchpad/lua/scratchpad.lua
