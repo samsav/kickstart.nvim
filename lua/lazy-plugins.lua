@@ -1,7 +1,7 @@
 require('lazy').setup({
 
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.conform',
+  require 'kickstart.plugins.autoformat',
   require 'kickstart.plugins.gitsigns',
   require 'kickstart.plugins.guess-indent',
   require 'kickstart.plugins.indent_line',
@@ -12,6 +12,7 @@ require('lazy').setup({
   require 'kickstart.plugins.telescope',
   require 'kickstart.plugins.todo-comments',
   require 'kickstart.plugins.tokyonight',
+  -- require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.which-key',
 
   -- require 'kickstart.plugins.debug',
